@@ -1,0 +1,7 @@
+/**/*.json
+/**/*.interp
+/**/*.tokens
+
+node_modules/
+test/
+test.js

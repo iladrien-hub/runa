@@ -1,0 +1,843 @@
+// Generated from runa/RunaParser.g4 by ANTLR 4.13.2
+// jshint ignore: start
+import antlr4 from 'antlr4';
+import RunaParserListener from './RunaParserListener.js';
+import RunaParserVisitor from './RunaParserVisitor.js';
+
+const serializedATN = [4,1,15,69,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,
+2,5,7,5,2,6,7,6,2,7,7,7,2,8,7,8,1,0,5,0,20,8,0,10,0,12,0,23,9,0,1,0,5,0,
+26,8,0,10,0,12,0,29,9,0,1,0,1,0,1,1,1,1,1,1,3,1,36,8,1,1,1,1,1,1,2,1,2,1,
+2,1,3,3,3,44,8,3,1,3,4,3,47,8,3,11,3,12,3,48,1,3,3,3,52,8,3,1,4,1,4,3,4,
+56,8,4,1,5,1,5,1,5,1,5,1,6,1,6,1,6,1,7,1,7,1,8,1,8,1,8,0,0,9,0,2,4,6,8,10,
+12,14,16,0,0,66,0,21,1,0,0,0,2,32,1,0,0,0,4,39,1,0,0,0,6,43,1,0,0,0,8,55,
+1,0,0,0,10,57,1,0,0,0,12,61,1,0,0,0,14,64,1,0,0,0,16,66,1,0,0,0,18,20,3,
+2,1,0,19,18,1,0,0,0,20,23,1,0,0,0,21,19,1,0,0,0,21,22,1,0,0,0,22,27,1,0,
+0,0,23,21,1,0,0,0,24,26,3,6,3,0,25,24,1,0,0,0,26,29,1,0,0,0,27,25,1,0,0,
+0,27,28,1,0,0,0,28,30,1,0,0,0,29,27,1,0,0,0,30,31,5,0,0,1,31,1,1,0,0,0,32,
+35,3,4,2,0,33,34,5,11,0,0,34,36,5,15,0,0,35,33,1,0,0,0,35,36,1,0,0,0,36,
+37,1,0,0,0,37,38,5,13,0,0,38,3,1,0,0,0,39,40,5,1,0,0,40,41,5,14,0,0,41,5,
+1,0,0,0,42,44,3,12,6,0,43,42,1,0,0,0,43,44,1,0,0,0,44,46,1,0,0,0,45,47,3,
+8,4,0,46,45,1,0,0,0,47,48,1,0,0,0,48,46,1,0,0,0,48,49,1,0,0,0,49,51,1,0,
+0,0,50,52,5,6,0,0,51,50,1,0,0,0,51,52,1,0,0,0,52,7,1,0,0,0,53,56,3,10,5,
+0,54,56,3,14,7,0,55,53,1,0,0,0,55,54,1,0,0,0,56,9,1,0,0,0,57,58,5,2,0,0,
+58,59,5,9,0,0,59,60,5,3,0,0,60,11,1,0,0,0,61,62,3,16,8,0,62,63,5,4,0,0,63,
+13,1,0,0,0,64,65,5,8,0,0,65,15,1,0,0,0,66,67,5,5,0,0,67,17,1,0,0,0,7,21,
+27,35,43,48,51,55];
+
+
+const atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
+
+const decisionsToDFA = atn.decisionToState.map( (ds, index) => new antlr4.dfa.DFA(ds, index) );
+
+const sharedContextCache = new antlr4.atn.PredictionContextCache();
+
+export default class RunaParser extends antlr4.Parser {
+
+    static grammarFileName = "RunaParser.g4";
+    static literalNames = [ null, "'@import'", "'{'", "'}'", "':'", null, 
+                            null, null, null, null, null, "'as'" ];
+    static symbolicNames = [ null, "IMPORT", "LBRACE", "RBRACE", "COLON", 
+                             "NUMBER", "NEWLINE", "WS", "TEXT", "VAR_IDENTIFIER", 
+                             "VAR_WS", "IMPORT_AS", "IMPORT_WS", "IMPORT_NEWLINE", 
+                             "IMPORT_PATH", "IMPORT_IDENTIFIER" ];
+    static ruleNames = [ "file", "importAsStatement", "importStatement", 
+                         "record", "recordBlock", "recordVariable", "recordWeight", 
+                         "recordText", "number" ];
+
+    constructor(input) {
+        super(input);
+        this._interp = new antlr4.atn.ParserATNSimulator(this, atn, decisionsToDFA, sharedContextCache);
+        this.ruleNames = RunaParser.ruleNames;
+        this.literalNames = RunaParser.literalNames;
+        this.symbolicNames = RunaParser.symbolicNames;
+    }
+
+
+
+	file() {
+	    let localctx = new FileContext(this, this._ctx, this.state);
+	    this.enterRule(localctx, 0, RunaParser.RULE_file);
+	    var _la = 0;
+	    try {
+	        this.enterOuterAlt(localctx, 1);
+	        this.state = 21;
+	        this._errHandler.sync(this);
+	        _la = this._input.LA(1);
+	        while(_la===1) {
+	            this.state = 18;
+	            this.importAsStatement();
+	            this.state = 23;
+	            this._errHandler.sync(this);
+	            _la = this._input.LA(1);
+	        }
+	        this.state = 27;
+	        this._errHandler.sync(this);
+	        _la = this._input.LA(1);
+	        while((((_la) & ~0x1f) === 0 && ((1 << _la) & 292) !== 0)) {
+	            this.state = 24;
+	            this.record();
+	            this.state = 29;
+	            this._errHandler.sync(this);
+	            _la = this._input.LA(1);
+	        }
+	        this.state = 30;
+	        this.match(RunaParser.EOF);
+	    } catch (re) {
+	    	if(re instanceof antlr4.error.RecognitionException) {
+		        localctx.exception = re;
+		        this._errHandler.reportError(this, re);
+		        this._errHandler.recover(this, re);
+		    } else {
+		    	throw re;
+		    }
+	    } finally {
+	        this.exitRule();
+	    }
+	    return localctx;
+	}
+
+
+
+	importAsStatement() {
+	    let localctx = new ImportAsStatementContext(this, this._ctx, this.state);
+	    this.enterRule(localctx, 2, RunaParser.RULE_importAsStatement);
+	    var _la = 0;
+	    try {
+	        this.enterOuterAlt(localctx, 1);
+	        this.state = 32;
+	        this.importStatement();
+	        this.state = 35;
+	        this._errHandler.sync(this);
+	        _la = this._input.LA(1);
+	        if(_la===11) {
+	            this.state = 33;
+	            this.match(RunaParser.IMPORT_AS);
+	            this.state = 34;
+	            this.match(RunaParser.IMPORT_IDENTIFIER);
+	        }
+
+	        this.state = 37;
+	        this.match(RunaParser.IMPORT_NEWLINE);
+	    } catch (re) {
+	    	if(re instanceof antlr4.error.RecognitionException) {
+		        localctx.exception = re;
+		        this._errHandler.reportError(this, re);
+		        this._errHandler.recover(this, re);
+		    } else {
+		    	throw re;
+		    }
+	    } finally {
+	        this.exitRule();
+	    }
+	    return localctx;
+	}
+
+
+
+	importStatement() {
+	    let localctx = new ImportStatementContext(this, this._ctx, this.state);
+	    this.enterRule(localctx, 4, RunaParser.RULE_importStatement);
+	    try {
+	        this.enterOuterAlt(localctx, 1);
+	        this.state = 39;
+	        this.match(RunaParser.IMPORT);
+	        this.state = 40;
+	        this.match(RunaParser.IMPORT_PATH);
+	    } catch (re) {
+	    	if(re instanceof antlr4.error.RecognitionException) {
+		        localctx.exception = re;
+		        this._errHandler.reportError(this, re);
+		        this._errHandler.recover(this, re);
+		    } else {
+		    	throw re;
+		    }
+	    } finally {
+	        this.exitRule();
+	    }
+	    return localctx;
+	}
+
+
+
+	record() {
+	    let localctx = new RecordContext(this, this._ctx, this.state);
+	    this.enterRule(localctx, 6, RunaParser.RULE_record);
+	    var _la = 0;
+	    try {
+	        this.enterOuterAlt(localctx, 1);
+	        this.state = 43;
+	        this._errHandler.sync(this);
+	        _la = this._input.LA(1);
+	        if(_la===5) {
+	            this.state = 42;
+	            this.recordWeight();
+	        }
+
+	        this.state = 46; 
+	        this._errHandler.sync(this);
+	        var _alt = 1;
+	        do {
+	        	switch (_alt) {
+	        	case 1:
+	        		this.state = 45;
+	        		this.recordBlock();
+	        		break;
+	        	default:
+	        		throw new antlr4.error.NoViableAltException(this);
+	        	}
+	        	this.state = 48; 
+	        	this._errHandler.sync(this);
+	        	_alt = this._interp.adaptivePredict(this._input,4, this._ctx);
+	        } while ( _alt!=2 && _alt!=antlr4.atn.ATN.INVALID_ALT_NUMBER );
+	        this.state = 51;
+	        this._errHandler.sync(this);
+	        _la = this._input.LA(1);
+	        if(_la===6) {
+	            this.state = 50;
+	            this.match(RunaParser.NEWLINE);
+	        }
+
+	    } catch (re) {
+	    	if(re instanceof antlr4.error.RecognitionException) {
+		        localctx.exception = re;
+		        this._errHandler.reportError(this, re);
+		        this._errHandler.recover(this, re);
+		    } else {
+		    	throw re;
+		    }
+	    } finally {
+	        this.exitRule();
+	    }
+	    return localctx;
+	}
+
+
+
+	recordBlock() {
+	    let localctx = new RecordBlockContext(this, this._ctx, this.state);
+	    this.enterRule(localctx, 8, RunaParser.RULE_recordBlock);
+	    try {
+	        this.state = 55;
+	        this._errHandler.sync(this);
+	        switch(this._input.LA(1)) {
+	        case 2:
+	            this.enterOuterAlt(localctx, 1);
+	            this.state = 53;
+	            this.recordVariable();
+	            break;
+	        case 8:
+	            this.enterOuterAlt(localctx, 2);
+	            this.state = 54;
+	            this.recordText();
+	            break;
+	        default:
+	            throw new antlr4.error.NoViableAltException(this);
+	        }
+	    } catch (re) {
+	    	if(re instanceof antlr4.error.RecognitionException) {
+		        localctx.exception = re;
+		        this._errHandler.reportError(this, re);
+		        this._errHandler.recover(this, re);
+		    } else {
+		    	throw re;
+		    }
+	    } finally {
+	        this.exitRule();
+	    }
+	    return localctx;
+	}
+
+
+
+	recordVariable() {
+	    let localctx = new RecordVariableContext(this, this._ctx, this.state);
+	    this.enterRule(localctx, 10, RunaParser.RULE_recordVariable);
+	    try {
+	        this.enterOuterAlt(localctx, 1);
+	        this.state = 57;
+	        this.match(RunaParser.LBRACE);
+	        this.state = 58;
+	        this.match(RunaParser.VAR_IDENTIFIER);
+	        this.state = 59;
+	        this.match(RunaParser.RBRACE);
+	    } catch (re) {
+	    	if(re instanceof antlr4.error.RecognitionException) {
+		        localctx.exception = re;
+		        this._errHandler.reportError(this, re);
+		        this._errHandler.recover(this, re);
+		    } else {
+		    	throw re;
+		    }
+	    } finally {
+	        this.exitRule();
+	    }
+	    return localctx;
+	}
+
+
+
+	recordWeight() {
+	    let localctx = new RecordWeightContext(this, this._ctx, this.state);
+	    this.enterRule(localctx, 12, RunaParser.RULE_recordWeight);
+	    try {
+	        this.enterOuterAlt(localctx, 1);
+	        this.state = 61;
+	        this.number();
+	        this.state = 62;
+	        this.match(RunaParser.COLON);
+	    } catch (re) {
+	    	if(re instanceof antlr4.error.RecognitionException) {
+		        localctx.exception = re;
+		        this._errHandler.reportError(this, re);
+		        this._errHandler.recover(this, re);
+		    } else {
+		    	throw re;
+		    }
+	    } finally {
+	        this.exitRule();
+	    }
+	    return localctx;
+	}
+
+
+
+	recordText() {
+	    let localctx = new RecordTextContext(this, this._ctx, this.state);
+	    this.enterRule(localctx, 14, RunaParser.RULE_recordText);
+	    try {
+	        this.enterOuterAlt(localctx, 1);
+	        this.state = 64;
+	        this.match(RunaParser.TEXT);
+	    } catch (re) {
+	    	if(re instanceof antlr4.error.RecognitionException) {
+		        localctx.exception = re;
+		        this._errHandler.reportError(this, re);
+		        this._errHandler.recover(this, re);
+		    } else {
+		    	throw re;
+		    }
+	    } finally {
+	        this.exitRule();
+	    }
+	    return localctx;
+	}
+
+
+
+	number() {
+	    let localctx = new NumberContext(this, this._ctx, this.state);
+	    this.enterRule(localctx, 16, RunaParser.RULE_number);
+	    try {
+	        this.enterOuterAlt(localctx, 1);
+	        this.state = 66;
+	        this.match(RunaParser.NUMBER);
+	    } catch (re) {
+	    	if(re instanceof antlr4.error.RecognitionException) {
+		        localctx.exception = re;
+		        this._errHandler.reportError(this, re);
+		        this._errHandler.recover(this, re);
+		    } else {
+		    	throw re;
+		    }
+	    } finally {
+	        this.exitRule();
+	    }
+	    return localctx;
+	}
+
+
+}
+
+RunaParser.EOF = antlr4.Token.EOF;
+RunaParser.IMPORT = 1;
+RunaParser.LBRACE = 2;
+RunaParser.RBRACE = 3;
+RunaParser.COLON = 4;
+RunaParser.NUMBER = 5;
+RunaParser.NEWLINE = 6;
+RunaParser.WS = 7;
+RunaParser.TEXT = 8;
+RunaParser.VAR_IDENTIFIER = 9;
+RunaParser.VAR_WS = 10;
+RunaParser.IMPORT_AS = 11;
+RunaParser.IMPORT_WS = 12;
+RunaParser.IMPORT_NEWLINE = 13;
+RunaParser.IMPORT_PATH = 14;
+RunaParser.IMPORT_IDENTIFIER = 15;
+
+RunaParser.RULE_file = 0;
+RunaParser.RULE_importAsStatement = 1;
+RunaParser.RULE_importStatement = 2;
+RunaParser.RULE_record = 3;
+RunaParser.RULE_recordBlock = 4;
+RunaParser.RULE_recordVariable = 5;
+RunaParser.RULE_recordWeight = 6;
+RunaParser.RULE_recordText = 7;
+RunaParser.RULE_number = 8;
+
+class FileContext extends antlr4.ParserRuleContext {
+
+    constructor(parser, parent, invokingState) {
+        if(parent===undefined) {
+            parent = null;
+        }
+        if(invokingState===undefined || invokingState===null) {
+            invokingState = -1;
+        }
+        super(parent, invokingState);
+        this.parser = parser;
+        this.ruleIndex = RunaParser.RULE_file;
+    }
+
+	EOF() {
+	    return this.getToken(RunaParser.EOF, 0);
+	};
+
+	importAsStatement = function(i) {
+	    if(i===undefined) {
+	        i = null;
+	    }
+	    if(i===null) {
+	        return this.getTypedRuleContexts(ImportAsStatementContext);
+	    } else {
+	        return this.getTypedRuleContext(ImportAsStatementContext,i);
+	    }
+	};
+
+	record = function(i) {
+	    if(i===undefined) {
+	        i = null;
+	    }
+	    if(i===null) {
+	        return this.getTypedRuleContexts(RecordContext);
+	    } else {
+	        return this.getTypedRuleContext(RecordContext,i);
+	    }
+	};
+
+	enterRule(listener) {
+	    if(listener instanceof RunaParserListener ) {
+	        listener.enterFile(this);
+		}
+	}
+
+	exitRule(listener) {
+	    if(listener instanceof RunaParserListener ) {
+	        listener.exitFile(this);
+		}
+	}
+
+	accept(visitor) {
+	    if ( visitor instanceof RunaParserVisitor ) {
+	        return visitor.visitFile(this);
+	    } else {
+	        return visitor.visitChildren(this);
+	    }
+	}
+
+
+}
+
+
+
+class ImportAsStatementContext extends antlr4.ParserRuleContext {
+
+    constructor(parser, parent, invokingState) {
+        if(parent===undefined) {
+            parent = null;
+        }
+        if(invokingState===undefined || invokingState===null) {
+            invokingState = -1;
+        }
+        super(parent, invokingState);
+        this.parser = parser;
+        this.ruleIndex = RunaParser.RULE_importAsStatement;
+    }
+
+	importStatement() {
+	    return this.getTypedRuleContext(ImportStatementContext,0);
+	};
+
+	IMPORT_NEWLINE() {
+	    return this.getToken(RunaParser.IMPORT_NEWLINE, 0);
+	};
+
+	IMPORT_AS() {
+	    return this.getToken(RunaParser.IMPORT_AS, 0);
+	};
+
+	IMPORT_IDENTIFIER() {
+	    return this.getToken(RunaParser.IMPORT_IDENTIFIER, 0);
+	};
+
+	enterRule(listener) {
+	    if(listener instanceof RunaParserListener ) {
+	        listener.enterImportAsStatement(this);
+		}
+	}
+
+	exitRule(listener) {
+	    if(listener instanceof RunaParserListener ) {
+	        listener.exitImportAsStatement(this);
+		}
+	}
+
+	accept(visitor) {
+	    if ( visitor instanceof RunaParserVisitor ) {
+	        return visitor.visitImportAsStatement(this);
+	    } else {
+	        return visitor.visitChildren(this);
+	    }
+	}
+
+
+}
+
+
+
+class ImportStatementContext extends antlr4.ParserRuleContext {
+
+    constructor(parser, parent, invokingState) {
+        if(parent===undefined) {
+            parent = null;
+        }
+        if(invokingState===undefined || invokingState===null) {
+            invokingState = -1;
+        }
+        super(parent, invokingState);
+        this.parser = parser;
+        this.ruleIndex = RunaParser.RULE_importStatement;
+    }
+
+	IMPORT() {
+	    return this.getToken(RunaParser.IMPORT, 0);
+	};
+
+	IMPORT_PATH() {
+	    return this.getToken(RunaParser.IMPORT_PATH, 0);
+	};
+
+	enterRule(listener) {
+	    if(listener instanceof RunaParserListener ) {
+	        listener.enterImportStatement(this);
+		}
+	}
+
+	exitRule(listener) {
+	    if(listener instanceof RunaParserListener ) {
+	        listener.exitImportStatement(this);
+		}
+	}
+
+	accept(visitor) {
+	    if ( visitor instanceof RunaParserVisitor ) {
+	        return visitor.visitImportStatement(this);
+	    } else {
+	        return visitor.visitChildren(this);
+	    }
+	}
+
+
+}
+
+
+
+class RecordContext extends antlr4.ParserRuleContext {
+
+    constructor(parser, parent, invokingState) {
+        if(parent===undefined) {
+            parent = null;
+        }
+        if(invokingState===undefined || invokingState===null) {
+            invokingState = -1;
+        }
+        super(parent, invokingState);
+        this.parser = parser;
+        this.ruleIndex = RunaParser.RULE_record;
+    }
+
+	recordWeight() {
+	    return this.getTypedRuleContext(RecordWeightContext,0);
+	};
+
+	recordBlock = function(i) {
+	    if(i===undefined) {
+	        i = null;
+	    }
+	    if(i===null) {
+	        return this.getTypedRuleContexts(RecordBlockContext);
+	    } else {
+	        return this.getTypedRuleContext(RecordBlockContext,i);
+	    }
+	};
+
+	NEWLINE() {
+	    return this.getToken(RunaParser.NEWLINE, 0);
+	};
+
+	enterRule(listener) {
+	    if(listener instanceof RunaParserListener ) {
+	        listener.enterRecord(this);
+		}
+	}
+
+	exitRule(listener) {
+	    if(listener instanceof RunaParserListener ) {
+	        listener.exitRecord(this);
+		}
+	}
+
+	accept(visitor) {
+	    if ( visitor instanceof RunaParserVisitor ) {
+	        return visitor.visitRecord(this);
+	    } else {
+	        return visitor.visitChildren(this);
+	    }
+	}
+
+
+}
+
+
+
+class RecordBlockContext extends antlr4.ParserRuleContext {
+
+    constructor(parser, parent, invokingState) {
+        if(parent===undefined) {
+            parent = null;
+        }
+        if(invokingState===undefined || invokingState===null) {
+            invokingState = -1;
+        }
+        super(parent, invokingState);
+        this.parser = parser;
+        this.ruleIndex = RunaParser.RULE_recordBlock;
+    }
+
+	recordVariable() {
+	    return this.getTypedRuleContext(RecordVariableContext,0);
+	};
+
+	recordText() {
+	    return this.getTypedRuleContext(RecordTextContext,0);
+	};
+
+	enterRule(listener) {
+	    if(listener instanceof RunaParserListener ) {
+	        listener.enterRecordBlock(this);
+		}
+	}
+
+	exitRule(listener) {
+	    if(listener instanceof RunaParserListener ) {
+	        listener.exitRecordBlock(this);
+		}
+	}
+
+	accept(visitor) {
+	    if ( visitor instanceof RunaParserVisitor ) {
+	        return visitor.visitRecordBlock(this);
+	    } else {
+	        return visitor.visitChildren(this);
+	    }
+	}
+
+
+}
+
+
+
+class RecordVariableContext extends antlr4.ParserRuleContext {
+
+    constructor(parser, parent, invokingState) {
+        if(parent===undefined) {
+            parent = null;
+        }
+        if(invokingState===undefined || invokingState===null) {
+            invokingState = -1;
+        }
+        super(parent, invokingState);
+        this.parser = parser;
+        this.ruleIndex = RunaParser.RULE_recordVariable;
+    }
+
+	LBRACE() {
+	    return this.getToken(RunaParser.LBRACE, 0);
+	};
+
+	VAR_IDENTIFIER() {
+	    return this.getToken(RunaParser.VAR_IDENTIFIER, 0);
+	};
+
+	RBRACE() {
+	    return this.getToken(RunaParser.RBRACE, 0);
+	};
+
+	enterRule(listener) {
+	    if(listener instanceof RunaParserListener ) {
+	        listener.enterRecordVariable(this);
+		}
+	}
+
+	exitRule(listener) {
+	    if(listener instanceof RunaParserListener ) {
+	        listener.exitRecordVariable(this);
+		}
+	}
+
+	accept(visitor) {
+	    if ( visitor instanceof RunaParserVisitor ) {
+	        return visitor.visitRecordVariable(this);
+	    } else {
+	        return visitor.visitChildren(this);
+	    }
+	}
+
+
+}
+
+
+
+class RecordWeightContext extends antlr4.ParserRuleContext {
+
+    constructor(parser, parent, invokingState) {
+        if(parent===undefined) {
+            parent = null;
+        }
+        if(invokingState===undefined || invokingState===null) {
+            invokingState = -1;
+        }
+        super(parent, invokingState);
+        this.parser = parser;
+        this.ruleIndex = RunaParser.RULE_recordWeight;
+    }
+
+	number() {
+	    return this.getTypedRuleContext(NumberContext,0);
+	};
+
+	COLON() {
+	    return this.getToken(RunaParser.COLON, 0);
+	};
+
+	enterRule(listener) {
+	    if(listener instanceof RunaParserListener ) {
+	        listener.enterRecordWeight(this);
+		}
+	}
+
+	exitRule(listener) {
+	    if(listener instanceof RunaParserListener ) {
+	        listener.exitRecordWeight(this);
+		}
+	}
+
+	accept(visitor) {
+	    if ( visitor instanceof RunaParserVisitor ) {
+	        return visitor.visitRecordWeight(this);
+	    } else {
+	        return visitor.visitChildren(this);
+	    }
+	}
+
+
+}
+
+
+
+class RecordTextContext extends antlr4.ParserRuleContext {
+
+    constructor(parser, parent, invokingState) {
+        if(parent===undefined) {
+            parent = null;
+        }
+        if(invokingState===undefined || invokingState===null) {
+            invokingState = -1;
+        }
+        super(parent, invokingState);
+        this.parser = parser;
+        this.ruleIndex = RunaParser.RULE_recordText;
+    }
+
+	TEXT() {
+	    return this.getToken(RunaParser.TEXT, 0);
+	};
+
+	enterRule(listener) {
+	    if(listener instanceof RunaParserListener ) {
+	        listener.enterRecordText(this);
+		}
+	}
+
+	exitRule(listener) {
+	    if(listener instanceof RunaParserListener ) {
+	        listener.exitRecordText(this);
+		}
+	}
+
+	accept(visitor) {
+	    if ( visitor instanceof RunaParserVisitor ) {
+	        return visitor.visitRecordText(this);
+	    } else {
+	        return visitor.visitChildren(this);
+	    }
+	}
+
+
+}
+
+
+
+class NumberContext extends antlr4.ParserRuleContext {
+
+    constructor(parser, parent, invokingState) {
+        if(parent===undefined) {
+            parent = null;
+        }
+        if(invokingState===undefined || invokingState===null) {
+            invokingState = -1;
+        }
+        super(parent, invokingState);
+        this.parser = parser;
+        this.ruleIndex = RunaParser.RULE_number;
+    }
+
+	NUMBER() {
+	    return this.getToken(RunaParser.NUMBER, 0);
+	};
+
+	enterRule(listener) {
+	    if(listener instanceof RunaParserListener ) {
+	        listener.enterNumber(this);
+		}
+	}
+
+	exitRule(listener) {
+	    if(listener instanceof RunaParserListener ) {
+	        listener.exitNumber(this);
+		}
+	}
+
+	accept(visitor) {
+	    if ( visitor instanceof RunaParserVisitor ) {
+	        return visitor.visitNumber(this);
+	    } else {
+	        return visitor.visitChildren(this);
+	    }
+	}
+
+
+}
+
+
+
+
+RunaParser.FileContext = FileContext; 
+RunaParser.ImportAsStatementContext = ImportAsStatementContext; 
+RunaParser.ImportStatementContext = ImportStatementContext; 
+RunaParser.RecordContext = RecordContext; 
+RunaParser.RecordBlockContext = RecordBlockContext; 
+RunaParser.RecordVariableContext = RecordVariableContext; 
+RunaParser.RecordWeightContext = RecordWeightContext; 
+RunaParser.RecordTextContext = RecordTextContext; 
+RunaParser.NumberContext = NumberContext; 

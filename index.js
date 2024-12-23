@@ -69,7 +69,7 @@ class RunaInterpreter extends RunaParserVisitor {
             }
         }
 
-        return result.join("");
+        return result.join("").trim();
 
         // return {
         //     type: "file",

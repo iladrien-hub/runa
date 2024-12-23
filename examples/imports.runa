@@ -1,0 +1,7 @@
+@import greetings/formal as fgreeting
+@import welcome/formal as fwelcome
+@import greetings/casual as cgreeting
+@import welcome/casual as cwelcome
+
+0.7: {fgreeting}! {fwelcome}
+0.3: {cgreeting}! {cwelcome} 

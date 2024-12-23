@@ -36,8 +36,8 @@ class RunaInterpreter extends RunaParserVisitor {
             const basePath = path.dirname(this.path);
             const resolvedPath = path.join(basePath, modulePath);
 
-            if (fs.existsSync(resolvedPath) && fs.existsSync(`${resolvedPath}/index.runa`)) {
-                fullPath = `${resolvedPath}/index.runa`;
+            if (fs.existsSync(resolvedPath) && fs.existsSync(`${resolvedPath}/__index__.runa`)) {
+                fullPath = `${resolvedPath}/__index__.runa`;
             } else if (fs.existsSync(`${resolvedPath}.runa`)) {
                 fullPath = `${resolvedPath}.runa`;
             } else {

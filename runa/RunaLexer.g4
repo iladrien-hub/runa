@@ -38,5 +38,7 @@ IMPORT_AS: 'as';
 IMPORT_WS: [ \t]+ -> skip;
 IMPORT_NEWLINE: NEWLINE -> popMode;
 
-IMPORT_PATH: ([a-zA-Z0-9_-]+ '/')+ ([a-zA-Z0-9_-]+);
+fragment IMPORT_PATH_PART: [a-zA-Z0-9_-]+ | '.' | '..';
+
+IMPORT_PATH: (IMPORT_PATH_PART '/')+ IMPORT_PATH_PART;
 IMPORT_IDENTIFIER: LETTER IDENTIFIER_CHAR*;

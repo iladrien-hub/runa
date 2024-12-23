@@ -3,5 +3,7 @@ package-lock.json
 /**/*.tokens
 
 node_modules/
+runa/.antlr/
+
 test/
 test.js

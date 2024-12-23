@@ -8,10 +8,10 @@ import path from "path";
 
 class RunaInterpreter extends RunaParserVisitor {
 
-    constructor(path) {
+    constructor(filePath) {
         super();
         this.variables = new Map();
-        this.path = path;
+        this.path = filePath;
     }
 
     visitFile(ctx) {
@@ -33,7 +33,7 @@ class RunaInterpreter extends RunaParserVisitor {
             const alias = import_.alias ?? modulePath.split("/").pop();
 
             let fullPath;
-            const basePath = this.path.split("/").slice(0, -1).join("/");
+            const basePath = path.dirname(this.path);
             const resolvedPath = path.join(basePath, modulePath);
 
             if (fs.existsSync(resolvedPath) && fs.existsSync(`${resolvedPath}/index.runa`)) {

@@ -1,7 +1,7 @@
 import antlr4 from "antlr4";
-import RunaLexer from "./JavaScript/RunaLexer.js";
-import RunaParser from "./JavaScript/RunaParser.js";
-import RunaParserVisitor from "./JavaScript/RunaParserVisitor.js";
+import RunaLexer from "./runa/JavaScript/RunaLexer.js";
+import RunaParser from "./runa/JavaScript/RunaParser.js";
+import RunaParserVisitor from "./runa/JavaScript/RunaParserVisitor.js";
 
 import fs from "fs";
 import path from "path";

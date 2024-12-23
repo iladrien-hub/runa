@@ -1,4 +1,4 @@
-/**/*.json
+package-lock.json
 /**/*.interp
 /**/*.tokens
 

@@ -1,0 +1,20 @@
+{
+  "name": "runa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "antlr4 -Dlanguage=JavaScript -o runa/JavaScript runa/RunaLexer.g4 && antlr4 -Dlanguage=JavaScript -visitor -o runa/JavaScript runa/RunaParser.g4 && node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iladrien-hub/runa.git"
+  },
+  "keywords": [],
+  "author": "Iladrien",
+  "license": "ISC",
+  "dependencies": {
+    "antlr4": "^4.13.2"
+  }
+}

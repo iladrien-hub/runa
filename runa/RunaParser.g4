@@ -19,10 +19,11 @@ recordWeight
     : number COLON
     ;
 recordText
-    : TEXT
+    : text
     ;
 lora
     : LANGLE LORA LORA_COLON LORA_IDENTIFIER LORA_COLON LORA_NUMBER RANGLE
     ;
 
 number: NUMBER;
+text: TEXT;

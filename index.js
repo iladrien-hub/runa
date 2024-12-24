@@ -20,8 +20,6 @@ class RunaInterpreter extends RunaParserVisitor {
         const imports = data.filter(d => d.type == "import" || d.type == "importAs");   
         const records = data.filter(d => d.type == "record");
 
-        console.log(records.map(r => r.children));
-
         if (records.length == 0) {
             return "";
         }
@@ -130,7 +128,7 @@ class RunaInterpreter extends RunaParserVisitor {
     visitRecordText(ctx) {
         return {
             type: "text",
-            text: ctx.getText(),
+            text: this.visitChildren(ctx)[0],
         }
     }
 
@@ -159,6 +157,11 @@ class RunaInterpreter extends RunaParserVisitor {
             name: ctx.children[3].getText(),
             value: Number(ctx.children[5].getText()),
         }
+    }
+
+    visitText(ctx) {
+        const text = ctx.TEXT().getText();
+        return text.replace(/\\(.)/g, '$1');
     }
 }
 

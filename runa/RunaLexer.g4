@@ -16,6 +16,7 @@ fragment WHITESPACE: [ \t];
 fragment IDENTIFIER_CHAR: LETTER | DIGIT | '_';
 fragment INTEGER: DIGIT+;
 fragment FLOAT: DIGIT* '.' DIGIT+;
+fragment ESCAPED_CHAR: '\\' [\\{}<>@:/];
 
 NUMBER: INTEGER | FLOAT;
 
@@ -27,7 +28,7 @@ NEWLINE: WHITESPACE* ('\r'? '\n' | '\r')+ -> skip ;
 WS: WHITESPACE+ -> type(TEXT);
 
 // Text content - anything except special characters
-TEXT: ~[{}<>\r\n@:/ ]+ ;
+TEXT: (ESCAPED_CHAR | ~[{}<>\r\n@:/ \\])+ ;
 
 // Mode for handling variable interpolation
 mode VARIABLE;

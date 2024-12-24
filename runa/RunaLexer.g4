@@ -20,7 +20,7 @@ fragment FLOAT: DIGIT* '.' DIGIT+;
 NUMBER: INTEGER | FLOAT;
 
 // Whitespace and newlines
-NEWLINE: ('\r'? '\n' | '\r')+ ;
+NEWLINE: WHITESPACE* ('\r'? '\n' | '\r')+ -> skip ;
 WS: WHITESPACE+ -> type(TEXT);
 
 // Text content - anything except special characters

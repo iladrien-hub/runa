@@ -20,6 +20,8 @@ class RunaInterpreter extends RunaParserVisitor {
         const imports = data.filter(d => d.type == "import" || d.type == "importAs");   
         const records = data.filter(d => d.type == "record");
 
+        console.log(records.map(r => r.children));
+
         if (records.length == 0) {
             return "";
         }
@@ -173,7 +175,7 @@ export function execute(code, path = undefined, debug = false) {
         // Print generated tokens for debugging
         tokens.fill();
         for (let i = 0; i < tokens.tokens.length; i++) {
-            console.log(`Token ${i}: Type=${RunaLexer.symbolicNames[tokens.tokens[i].type]}, Text='${tokens.tokens[i].text}'`);
+            console.log(`Token ${i}: Type=${RunaLexer.symbolicNames[tokens.tokens[i].type]}, Text=${JSON.stringify(tokens.tokens[i].text)}`);
         }
         console.log();
     }

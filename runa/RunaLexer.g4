@@ -19,12 +19,15 @@ fragment FLOAT: DIGIT* '.' DIGIT+;
 
 NUMBER: INTEGER | FLOAT;
 
+// Comments
+COMMENT: WHITESPACE* '//' ~[\r\n]* (NEWLINE | EOF) -> skip;
+
 // Whitespace and newlines
 NEWLINE: WHITESPACE* ('\r'? '\n' | '\r')+ -> skip ;
 WS: WHITESPACE+ -> type(TEXT);
 
 // Text content - anything except special characters
-TEXT: ~[{}<>\r\n@:]+ ;
+TEXT: ~[{}<>\r\n@:/ ]+ ;
 
 // Mode for handling variable interpolation
 mode VARIABLE;

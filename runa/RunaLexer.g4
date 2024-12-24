@@ -2,11 +2,13 @@ lexer grammar RunaLexer;
 
 // Keywords
 IMPORT: '@import' -> pushMode(IMPORT_MODE);
+LORA: 'lora' -> pushMode(LORA_MODE);
 
 // Symbols
 LBRACE: '{' -> pushMode(VARIABLE);
 RBRACE: '}';
 COLON: ':';
+LANGLE: '<';
 
 // Fragments for common character patterns
 fragment LETTER: [a-zA-Z];
@@ -23,7 +25,7 @@ NEWLINE: ('\r'? '\n' | '\r')+ ;
 WS: [ \t]+ -> skip;
 
 // Text content - anything except special characters
-TEXT: ~[{}\r\n@:]+ ;
+TEXT: ~[{}<>\r\n@:]+ ;
 
 // Mode for handling variable interpolation
 mode VARIABLE;
@@ -42,3 +44,10 @@ fragment IMPORT_PATH_PART: [a-zA-Z0-9_-]+ | '.' | '..';
 
 IMPORT_PATH: (IMPORT_PATH_PART '/')+ IMPORT_PATH_PART;
 IMPORT_IDENTIFIER: LETTER IDENTIFIER_CHAR*;
+
+// Mode for handling lora
+mode LORA_MODE;
+LORA_IDENTIFIER: (IDENTIFIER_CHAR | '-')+;
+LORA_COLON: ':';
+LORA_NUMBER: NUMBER;
+RANGLE: '>' -> popMode;

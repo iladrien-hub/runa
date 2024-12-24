@@ -1,0 +1,4 @@
+@import ./lora
+
+this weight expected to be 1.2 <lora:test-0001:0.8> { lora }
+this weight expected to be 1.5 <lora:test-0001:1.5> { lora }

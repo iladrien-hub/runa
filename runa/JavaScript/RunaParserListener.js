@@ -77,6 +77,15 @@ export default class RunaParserListener extends antlr4.tree.ParseTreeListener {
 	}
 
 
+	// Enter a parse tree produced by RunaParser#lora.
+	enterLora(ctx) {
+	}
+
+	// Exit a parse tree produced by RunaParser#lora.
+	exitLora(ctx) {
+	}
+
+
 	// Enter a parse tree produced by RunaParser#number.
 	enterNumber(ctx) {
 	}

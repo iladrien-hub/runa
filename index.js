@@ -58,24 +58,34 @@ class RunaInterpreter extends RunaParserVisitor {
         });
 
         let result = []
+        let loras = new Map();
+
         for (const block of selectedRecord.children) {
             switch (block.type) {
                 case "text":
                     result.push(block.text);
                     break;
                 case "variable":
-                    result.push(this.variables.get(block.name));
+                    const varData = this.variables.get(block.name);
+                    for (const lora of varData.loras.values()) {
+                        if (!loras.has(lora.name) || loras.get(lora.name).value < lora.value) {
+                            loras.set(lora.name, lora);
+                        }
+                    }
+                    result.push(varData.text);
+                    break;
+                case "lora":
+                    if (!loras.has(block.name) || loras.get(block.name).value < block.value) {
+                        loras.set(block.name, block);
+                    }
                     break;
             }
         }
 
-        return result.map(r => r.trim()).join(" ");
-
-        // return {
-        //     type: "file",
-        //     imports: imports,
-        //     records: records,
-        // };
+        return {
+            text: result.map(r => r.trim()).join(" ").trim(),
+            loras: loras,
+        };
     }
 
     visitImportStatement(ctx) {
@@ -140,9 +150,17 @@ class RunaInterpreter extends RunaParserVisitor {
     visitNumber(ctx) {
         return Number(ctx.getText());
     }
+
+    visitLora(ctx) {
+        return {
+            type: "lora",
+            name: ctx.children[3].getText(),
+            value: Number(ctx.children[5].getText()),
+        }
+    }
 }
 
-export function execute(code, path = undefined) {
+export function execute(code, path = undefined, debug = false) {
     if (path === undefined) {
         path = process.cwd();
     }
@@ -150,6 +168,16 @@ export function execute(code, path = undefined) {
     const input = new antlr4.InputStream(code);
     const lexer = new RunaLexer(input);
     const tokens = new antlr4.CommonTokenStream(lexer);
+
+    if (debug) {
+        // Print generated tokens for debugging
+        tokens.fill();
+        for (let i = 0; i < tokens.tokens.length; i++) {
+            console.log(`Token ${i}: Type=${RunaLexer.symbolicNames[tokens.tokens[i].type]}, Text='${tokens.tokens[i].text}'`);
+        }
+        console.log();
+    }
+    
     const parser = new RunaParser(tokens);
     const tree = parser.file();
 
@@ -157,8 +185,8 @@ export function execute(code, path = undefined) {
     return interpreter.visit(tree);
 }
 
-export function executeFile(path) {
+export function executeFile(path, debug = false) {
     const code = fs.readFileSync(path, "utf8");
-    return execute(code, path);
+    return execute(code, path, debug);
 }
 

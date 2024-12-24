@@ -83,7 +83,7 @@ class RunaInterpreter extends RunaParserVisitor {
         }
 
         return {
-            text: result.map(r => r.trim()).join(" ").trim(),
+            text: result.join("").trim(),
             loras: loras,
         };
     }

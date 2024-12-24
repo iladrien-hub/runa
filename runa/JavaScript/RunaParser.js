@@ -4,7 +4,7 @@ import antlr4 from 'antlr4';
 import RunaParserListener from './RunaParserListener.js';
 import RunaParserVisitor from './RunaParserVisitor.js';
 
-const serializedATN = [4,1,21,80,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,
+const serializedATN = [4,1,20,80,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,
 2,5,7,5,2,6,7,6,2,7,7,7,2,8,7,8,2,9,7,9,1,0,5,0,22,8,0,10,0,12,0,25,9,0,
 1,0,5,0,28,8,0,10,0,12,0,31,9,0,1,0,1,0,1,1,1,1,1,1,3,1,38,8,1,1,1,1,1,1,
 2,1,2,1,2,1,3,3,3,46,8,3,1,3,4,3,49,8,3,11,3,12,3,50,1,3,3,3,54,8,3,1,4,
@@ -15,16 +15,16 @@ const serializedATN = [4,1,21,80,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,
 20,1,0,0,0,22,25,1,0,0,0,23,21,1,0,0,0,23,24,1,0,0,0,24,29,1,0,0,0,25,23,
 1,0,0,0,26,28,3,6,3,0,27,26,1,0,0,0,28,31,1,0,0,0,29,27,1,0,0,0,29,30,1,
 0,0,0,30,32,1,0,0,0,31,29,1,0,0,0,32,33,5,0,0,1,33,1,1,0,0,0,34,37,3,4,2,
-0,35,36,5,13,0,0,36,38,5,17,0,0,37,35,1,0,0,0,37,38,1,0,0,0,38,39,1,0,0,
-0,39,40,5,15,0,0,40,3,1,0,0,0,41,42,5,1,0,0,42,43,5,16,0,0,43,5,1,0,0,0,
+0,35,36,5,12,0,0,36,38,5,16,0,0,37,35,1,0,0,0,37,38,1,0,0,0,38,39,1,0,0,
+0,39,40,5,14,0,0,40,3,1,0,0,0,41,42,5,1,0,0,42,43,5,15,0,0,43,5,1,0,0,0,
 44,46,3,12,6,0,45,44,1,0,0,0,45,46,1,0,0,0,46,48,1,0,0,0,47,49,3,8,4,0,48,
 47,1,0,0,0,49,50,1,0,0,0,50,48,1,0,0,0,50,51,1,0,0,0,51,53,1,0,0,0,52,54,
-5,8,0,0,53,52,1,0,0,0,53,54,1,0,0,0,54,7,1,0,0,0,55,59,3,10,5,0,56,59,3,
+5,7,0,0,53,52,1,0,0,0,53,54,1,0,0,0,54,7,1,0,0,0,55,59,3,10,5,0,56,59,3,
 16,8,0,57,59,3,14,7,0,58,55,1,0,0,0,58,56,1,0,0,0,58,57,1,0,0,0,59,9,1,0,
-0,0,60,61,5,3,0,0,61,62,5,11,0,0,62,63,5,4,0,0,63,11,1,0,0,0,64,65,3,18,
-9,0,65,66,5,5,0,0,66,13,1,0,0,0,67,68,5,10,0,0,68,15,1,0,0,0,69,70,5,6,0,
-0,70,71,5,2,0,0,71,72,5,19,0,0,72,73,5,18,0,0,73,74,5,19,0,0,74,75,5,20,
-0,0,75,76,5,21,0,0,76,17,1,0,0,0,77,78,5,7,0,0,78,19,1,0,0,0,7,23,29,37,
+0,0,60,61,5,3,0,0,61,62,5,9,0,0,62,63,5,11,0,0,63,11,1,0,0,0,64,65,3,18,
+9,0,65,66,5,4,0,0,66,13,1,0,0,0,67,68,5,8,0,0,68,15,1,0,0,0,69,70,5,5,0,
+0,70,71,5,2,0,0,71,72,5,18,0,0,72,73,5,17,0,0,73,74,5,18,0,0,74,75,5,19,
+0,0,75,76,5,20,0,0,76,17,1,0,0,0,77,78,5,6,0,0,78,19,1,0,0,0,7,23,29,37,
 45,50,53,58];
 
 
@@ -37,15 +37,15 @@ const sharedContextCache = new antlr4.atn.PredictionContextCache();
 export default class RunaParser extends antlr4.Parser {
 
     static grammarFileName = "RunaParser.g4";
-    static literalNames = [ null, "'@import'", "'lora'", "'{'", "'}'", null, 
-                            "'<'", null, null, null, null, null, null, "'as'", 
+    static literalNames = [ null, "'@import'", "'lora'", "'{'", null, "'<'", 
+                            null, null, null, null, null, "'}'", "'as'", 
                             null, null, null, null, null, null, null, "'>'" ];
-    static symbolicNames = [ null, "IMPORT", "LORA", "LBRACE", "RBRACE", 
-                             "COLON", "LANGLE", "NUMBER", "NEWLINE", "WS", 
-                             "TEXT", "VAR_IDENTIFIER", "VAR_WS", "IMPORT_AS", 
-                             "IMPORT_WS", "IMPORT_NEWLINE", "IMPORT_PATH", 
-                             "IMPORT_IDENTIFIER", "LORA_IDENTIFIER", "LORA_COLON", 
-                             "LORA_NUMBER", "RANGLE" ];
+    static symbolicNames = [ null, "IMPORT", "LORA", "LBRACE", "COLON", 
+                             "LANGLE", "NUMBER", "NEWLINE", "TEXT", "VAR_IDENTIFIER", 
+                             "VAR_WS", "RBRACE", "IMPORT_AS", "IMPORT_WS", 
+                             "IMPORT_NEWLINE", "IMPORT_PATH", "IMPORT_IDENTIFIER", 
+                             "LORA_IDENTIFIER", "LORA_COLON", "LORA_NUMBER", 
+                             "RANGLE" ];
     static ruleNames = [ "file", "importAsStatement", "importStatement", 
                          "record", "recordBlock", "recordVariable", "recordWeight", 
                          "recordText", "lora", "number" ];
@@ -79,7 +79,7 @@ export default class RunaParser extends antlr4.Parser {
 	        this.state = 29;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
-	        while((((_la) & ~0x1f) === 0 && ((1 << _la) & 1224) !== 0)) {
+	        while((((_la) & ~0x1f) === 0 && ((1 << _la) & 360) !== 0)) {
 	            this.state = 26;
 	            this.record();
 	            this.state = 31;
@@ -115,7 +115,7 @@ export default class RunaParser extends antlr4.Parser {
 	        this.state = 37;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
-	        if(_la===13) {
+	        if(_la===12) {
 	            this.state = 35;
 	            this.match(RunaParser.IMPORT_AS);
 	            this.state = 36;
@@ -174,7 +174,7 @@ export default class RunaParser extends antlr4.Parser {
 	        this.state = 45;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
-	        if(_la===7) {
+	        if(_la===6) {
 	            this.state = 44;
 	            this.recordWeight();
 	        }
@@ -198,7 +198,7 @@ export default class RunaParser extends antlr4.Parser {
 	        this.state = 53;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
-	        if(_la===8) {
+	        if(_la===7) {
 	            this.state = 52;
 	            this.match(RunaParser.NEWLINE);
 	        }
@@ -231,12 +231,12 @@ export default class RunaParser extends antlr4.Parser {
 	            this.state = 55;
 	            this.recordVariable();
 	            break;
-	        case 6:
+	        case 5:
 	            this.enterOuterAlt(localctx, 2);
 	            this.state = 56;
 	            this.lora();
 	            break;
-	        case 10:
+	        case 8:
 	            this.enterOuterAlt(localctx, 3);
 	            this.state = 57;
 	            this.recordText();
@@ -398,24 +398,23 @@ RunaParser.EOF = antlr4.Token.EOF;
 RunaParser.IMPORT = 1;
 RunaParser.LORA = 2;
 RunaParser.LBRACE = 3;
-RunaParser.RBRACE = 4;
-RunaParser.COLON = 5;
-RunaParser.LANGLE = 6;
-RunaParser.NUMBER = 7;
-RunaParser.NEWLINE = 8;
-RunaParser.WS = 9;
-RunaParser.TEXT = 10;
-RunaParser.VAR_IDENTIFIER = 11;
-RunaParser.VAR_WS = 12;
-RunaParser.IMPORT_AS = 13;
-RunaParser.IMPORT_WS = 14;
-RunaParser.IMPORT_NEWLINE = 15;
-RunaParser.IMPORT_PATH = 16;
-RunaParser.IMPORT_IDENTIFIER = 17;
-RunaParser.LORA_IDENTIFIER = 18;
-RunaParser.LORA_COLON = 19;
-RunaParser.LORA_NUMBER = 20;
-RunaParser.RANGLE = 21;
+RunaParser.COLON = 4;
+RunaParser.LANGLE = 5;
+RunaParser.NUMBER = 6;
+RunaParser.NEWLINE = 7;
+RunaParser.TEXT = 8;
+RunaParser.VAR_IDENTIFIER = 9;
+RunaParser.VAR_WS = 10;
+RunaParser.RBRACE = 11;
+RunaParser.IMPORT_AS = 12;
+RunaParser.IMPORT_WS = 13;
+RunaParser.IMPORT_NEWLINE = 14;
+RunaParser.IMPORT_PATH = 15;
+RunaParser.IMPORT_IDENTIFIER = 16;
+RunaParser.LORA_IDENTIFIER = 17;
+RunaParser.LORA_COLON = 18;
+RunaParser.LORA_NUMBER = 19;
+RunaParser.RANGLE = 20;
 
 RunaParser.RULE_file = 0;
 RunaParser.RULE_importAsStatement = 1;

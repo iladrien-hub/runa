@@ -1,0 +1,4 @@
+@import ./greetings/casual as greeting
+@import ./welcome/casual as welcome
+
+{ greeting } { welcome }

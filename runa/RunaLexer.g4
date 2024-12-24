@@ -6,7 +6,6 @@ LORA: 'lora' -> pushMode(LORA_MODE);
 
 // Symbols
 LBRACE: '{' -> pushMode(VARIABLE);
-RBRACE: '}';
 COLON: ':';
 LANGLE: '<';
 
@@ -22,15 +21,16 @@ NUMBER: INTEGER | FLOAT;
 
 // Whitespace and newlines
 NEWLINE: ('\r'? '\n' | '\r')+ ;
-WS: [ \t]+ -> skip;
+WS: WHITESPACE+ -> type(TEXT);
 
 // Text content - anything except special characters
 TEXT: ~[{}<>\r\n@:]+ ;
 
 // Mode for handling variable interpolation
 mode VARIABLE;
-VAR_IDENTIFIER: LETTER IDENTIFIER_CHAR* -> popMode;
-VAR_WS: [ \t]+ -> skip;
+VAR_IDENTIFIER: LETTER IDENTIFIER_CHAR*;
+VAR_WS: WHITESPACE+ -> skip;
+RBRACE: '}' -> popMode;
 
 // Mode for handling imports
 mode IMPORT_MODE;

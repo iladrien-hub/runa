@@ -26,7 +26,7 @@ NUMBER: INTEGER | FLOAT;
 COMMENT: WHITESPACE* '//' ~[\r\n]* (NEWLINE | EOF) -> skip;
 
 // Whitespace and newlines
-NEWLINE: WHITESPACE* ('\r'? '\n' | '\r')+ -> skip ;
+NEWLINE: WHITESPACE* ('\r'? '\n' | '\r')+ WHITESPACE*;
 WS: WHITESPACE+ -> type(TEXT);
 
 // Text content - anything except special characters

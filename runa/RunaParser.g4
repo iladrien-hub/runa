@@ -1,14 +1,14 @@
 parser grammar RunaParser;
 options { tokenVocab=RunaLexer; }
 
-file: importAsStatement* useStatement* record* EOF;
+file: NEWLINE* importAsStatement* useStatement* record* NEWLINE* EOF;
 
 importAsStatement: importStatement (IMPORT_AS IMPORT_IDENTIFIER)? IMPORT_NEWLINE;
 importStatement: IMPORT IMPORT_PATH;
 
 useStatement: USE USE_IDENTIFIER USE_NEWLINE;
 
-record: recordWeight? recordBlock+ NEWLINE?;
+record: recordWeight? recordBlock+ (NEWLINE | EOF);
 recordBlock
     : recordVariable
     | lora

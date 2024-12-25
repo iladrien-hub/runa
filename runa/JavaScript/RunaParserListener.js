@@ -14,21 +14,57 @@ export default class RunaParserListener extends antlr4.tree.ParseTreeListener {
 	}
 
 
-	// Enter a parse tree produced by RunaParser#importAsStatement.
-	enterImportAsStatement(ctx) {
-	}
-
-	// Exit a parse tree produced by RunaParser#importAsStatement.
-	exitImportAsStatement(ctx) {
-	}
-
-
 	// Enter a parse tree produced by RunaParser#importStatement.
 	enterImportStatement(ctx) {
 	}
 
 	// Exit a parse tree produced by RunaParser#importStatement.
 	exitImportStatement(ctx) {
+	}
+
+
+	// Enter a parse tree produced by RunaParser#importAsPart.
+	enterImportAsPart(ctx) {
+	}
+
+	// Exit a parse tree produced by RunaParser#importAsPart.
+	exitImportAsPart(ctx) {
+	}
+
+
+	// Enter a parse tree produced by RunaParser#importPathPart.
+	enterImportPathPart(ctx) {
+	}
+
+	// Exit a parse tree produced by RunaParser#importPathPart.
+	exitImportPathPart(ctx) {
+	}
+
+
+	// Enter a parse tree produced by RunaParser#importWithPart.
+	enterImportWithPart(ctx) {
+	}
+
+	// Exit a parse tree produced by RunaParser#importWithPart.
+	exitImportWithPart(ctx) {
+	}
+
+
+	// Enter a parse tree produced by RunaParser#importWithVariables.
+	enterImportWithVariables(ctx) {
+	}
+
+	// Exit a parse tree produced by RunaParser#importWithVariables.
+	exitImportWithVariables(ctx) {
+	}
+
+
+	// Enter a parse tree produced by RunaParser#importWithVariablePart.
+	enterImportWithVariablePart(ctx) {
+	}
+
+	// Exit a parse tree produced by RunaParser#importWithVariablePart.
+	exitImportWithVariablePart(ctx) {
 	}
 
 

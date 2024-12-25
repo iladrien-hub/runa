@@ -18,7 +18,17 @@ class RunaInterpreter extends RunaParserVisitor {
             const modulePath = import_.path;
             const alias = import_.alias ?? modulePath.split("/").pop();
             const resolvedPath = this.resolveModulePath(modulePath);
-            this.variablesStore.set(alias, executeFile(resolvedPath, this.contextStore));
+            const context = import_.context;
+
+            let contextStore = this.contextStore;
+            if (context) {
+                contextStore = new Map(this.contextStore);
+                for (const variable of context) {
+                    contextStore.set(variable.name, variable.value);
+                }
+            }
+
+            this.variablesStore.set(alias, executeFile(resolvedPath, contextStore));
         }
     }
 
@@ -118,19 +128,48 @@ class RunaInterpreter extends RunaParserVisitor {
     }
 
     visitImportStatement(ctx) {
-        return {
+        const data = this.visitChildren(ctx).filter(d => d);
+        const result = {
             type: "import",
-            path: ctx.children[1].getText(),
+            path: data.find(d => d.type === "path")?.path,
+            alias: data.find(d => d.type === "alias")?.name,
+            context: data.find(d => d.type === "context")?.variables,
+        };
+
+        return result;
+    }
+
+    visitImportPathPart(ctx) {
+        return {
+            type: "path",
+            path: ctx.children[0].getText(),
         }
     }
 
-    visitImportAsStatement(ctx) {
-        const import_ = this.visitChildren(ctx)[0];
-        if (ctx.children.length === 2) return import_;
+    visitImportAsPart(ctx) {
         return {
-            type: "importAs",
-            path: import_.path,
-            alias: ctx.children[2].getText(),
+            type: "alias",
+            name: ctx.children[1].getText(),
+        }
+    }
+
+    visitImportWithPart(ctx) {
+        const data = this.visitChildren(ctx).filter(d => d)[0];
+        return {
+            type: "context",
+            variables: data,
+        }
+    }
+
+    visitImportWithVariables(ctx) {
+        return this.visitChildren(ctx).filter(d => d);
+    }
+
+    visitImportWithVariablePart(ctx) {
+        const data = ctx.children.map(c => c.getText());
+        return {
+            name: data[0],
+            value: data[2].slice(1, -1),
         }
     }
 

@@ -21,6 +21,7 @@ fragment ESCAPED_CHAR: '\\' [\\{}<>@:/];
 fragment VARIABLE_NAME: LETTER IDENTIFIER_CHAR*;
 
 NUMBER: INTEGER | FLOAT;
+BOOLEAN: 'true' | 'false';
 
 // Comments
 COMMENT: WHITESPACE* '//' ~[\r\n]* (NEWLINE | EOF) -> skip;
@@ -42,6 +43,7 @@ RBRACE: '}' -> popMode;
 mode IMPORT_MODE;
 // Keywords
 IMPORT_AS: 'as';
+IMPORT_WITH: 'with' -> pushMode(IMPORT_WITH_MODE);
 
 IMPORT_WS: [ \t]+ -> skip;
 IMPORT_NEWLINE: NEWLINE -> popMode;
@@ -50,6 +52,19 @@ fragment IMPORT_PATH_PART: [a-zA-Z0-9_-]+ | '.' | '..';
 
 IMPORT_PATH: (IMPORT_PATH_PART '/')+ IMPORT_PATH_PART;
 IMPORT_IDENTIFIER: VARIABLE_NAME;
+
+mode IMPORT_WITH_MODE;
+// Symbols
+IMPORT_WITH_COLON: ':';
+IMPORT_WITH_COMMA: ',';
+IMPORT_WITH_LBRACE: '{';
+IMPORT_WITH_RBRACE: '}' -> popMode;
+
+IMPORT_WITH_VALUE: '"' ('\\"' | ~["\r\n])* '"';
+
+IMPORT_WITH_WS: [ \t]+ -> skip;
+IMPORT_WITH_IDENTIFIER: IMPORT_IDENTIFIER;
+
 
 // Mode for handling lora
 mode LORA_MODE;

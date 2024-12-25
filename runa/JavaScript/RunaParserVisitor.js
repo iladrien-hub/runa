@@ -12,14 +12,38 @@ export default class RunaParserVisitor extends antlr4.tree.ParseTreeVisitor {
 	}
 
 
-	// Visit a parse tree produced by RunaParser#importAsStatement.
-	visitImportAsStatement(ctx) {
+	// Visit a parse tree produced by RunaParser#importStatement.
+	visitImportStatement(ctx) {
 	  return this.visitChildren(ctx);
 	}
 
 
-	// Visit a parse tree produced by RunaParser#importStatement.
-	visitImportStatement(ctx) {
+	// Visit a parse tree produced by RunaParser#importAsPart.
+	visitImportAsPart(ctx) {
+	  return this.visitChildren(ctx);
+	}
+
+
+	// Visit a parse tree produced by RunaParser#importPathPart.
+	visitImportPathPart(ctx) {
+	  return this.visitChildren(ctx);
+	}
+
+
+	// Visit a parse tree produced by RunaParser#importWithPart.
+	visitImportWithPart(ctx) {
+	  return this.visitChildren(ctx);
+	}
+
+
+	// Visit a parse tree produced by RunaParser#importWithVariables.
+	visitImportWithVariables(ctx) {
+	  return this.visitChildren(ctx);
+	}
+
+
+	// Visit a parse tree produced by RunaParser#importWithVariablePart.
+	visitImportWithVariablePart(ctx) {
 	  return this.visitChildren(ctx);
 	}
 

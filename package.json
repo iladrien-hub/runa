@@ -5,8 +5,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "jest": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "test": "antlr4 -Dlanguage=JavaScript -o runa/JavaScript runa/RunaLexer.g4 && antlr4 -Dlanguage=JavaScript -visitor -o runa/JavaScript runa/RunaParser.g4 && node 1.js"
+    "build:js": "antlr4 -Dlanguage=JavaScript -o runa/JavaScript runa/RunaLexer.g4 && antlr4 -Dlanguage=JavaScript -visitor -o runa/JavaScript runa/RunaParser.g4",
+
+    "jest": "npm run build:js && node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test": "npm run build:js && node 1.js"
   },
   "repository": {
     "type": "git",

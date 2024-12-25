@@ -1,10 +1,14 @@
 parser grammar RunaParser;
 options { tokenVocab=RunaLexer; }
 
-file: NEWLINE* importAsStatement* useStatement* record* NEWLINE* EOF;
+file: NEWLINE* importStatement* useStatement* record* NEWLINE* EOF;
 
-importAsStatement: importStatement (IMPORT_AS IMPORT_IDENTIFIER)? IMPORT_NEWLINE;
-importStatement: IMPORT IMPORT_PATH;
+importStatement: IMPORT importPathPart importWithPart? importAsPart? IMPORT_NEWLINE;
+importAsPart: IMPORT_AS IMPORT_IDENTIFIER;
+importPathPart: IMPORT_PATH;
+importWithPart: IMPORT_WITH IMPORT_WITH_LBRACE importWithVariables IMPORT_WITH_RBRACE;
+importWithVariables: importWithVariablePart (IMPORT_WITH_COMMA importWithVariablePart)*;
+importWithVariablePart: IMPORT_WITH_IDENTIFIER IMPORT_WITH_COLON IMPORT_WITH_VALUE;
 
 useStatement: USE USE_IDENTIFIER USE_NEWLINE;
 

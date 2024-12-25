@@ -113,6 +113,36 @@ describe('Runa Interpreter', () => {
             execute(code, path.join(__dirname, 'test.runa'));
         }).toThrow('Could not find module');
     });
+
+    test('context import with', () => {
+        // Without context
+        let code = `
+            @import ./examples/contextSimple
+            @use name
+            My name is {name}, yours is {contextSimple}
+        `;
+        let result = execute(code, path.join(__dirname, 'test.runa'));
+        expect(result.text).toBe('My name is , yours is');
+
+        // With default context
+        code = `
+            @import ./examples/contextSimple
+            @use name
+            My name is {name}, yours is {contextSimple}
+        `;
+        result = execute(code, path.join(__dirname, 'test.runa'), new Map([['name', 'John']]));
+        expect(result.text).toBe('My name is John, yours is John');
+
+        // With override context
+        code = `
+            @import ./examples/contextSimple with { name: "Jennifer" }
+            @use name
+            My name is {name}, yours is {contextSimple}
+        `;
+        result = execute(code, path.join(__dirname, 'test.runa'), new Map([['name', 'John']]));
+        expect(result.text).toBe('My name is John, yours is Jennifer');
+
+    });
 });
 
 

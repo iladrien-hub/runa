@@ -4,29 +4,32 @@ import antlr4 from 'antlr4';
 import RunaParserListener from './RunaParserListener.js';
 import RunaParserVisitor from './RunaParserVisitor.js';
 
-const serializedATN = [4,1,21,84,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,
-2,5,7,5,2,6,7,6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,1,0,5,0,24,8,0,10,0,12,
-0,27,9,0,1,0,5,0,30,8,0,10,0,12,0,33,9,0,1,0,1,0,1,1,1,1,1,1,3,1,40,8,1,
-1,1,1,1,1,2,1,2,1,2,1,3,3,3,48,8,3,1,3,4,3,51,8,3,11,3,12,3,52,1,3,3,3,56,
-8,3,1,4,1,4,1,4,3,4,61,8,4,1,5,1,5,1,5,1,5,1,6,1,6,1,6,1,7,1,7,1,8,1,8,1,
-8,1,8,1,8,1,8,1,8,1,8,1,9,1,9,1,10,1,10,1,10,0,0,11,0,2,4,6,8,10,12,14,16,
-18,20,0,0,80,0,25,1,0,0,0,2,36,1,0,0,0,4,43,1,0,0,0,6,47,1,0,0,0,8,60,1,
-0,0,0,10,62,1,0,0,0,12,66,1,0,0,0,14,69,1,0,0,0,16,71,1,0,0,0,18,79,1,0,
-0,0,20,81,1,0,0,0,22,24,3,2,1,0,23,22,1,0,0,0,24,27,1,0,0,0,25,23,1,0,0,
-0,25,26,1,0,0,0,26,31,1,0,0,0,27,25,1,0,0,0,28,30,3,6,3,0,29,28,1,0,0,0,
-30,33,1,0,0,0,31,29,1,0,0,0,31,32,1,0,0,0,32,34,1,0,0,0,33,31,1,0,0,0,34,
-35,5,0,0,1,35,1,1,0,0,0,36,39,3,4,2,0,37,38,5,13,0,0,38,40,5,17,0,0,39,37,
-1,0,0,0,39,40,1,0,0,0,40,41,1,0,0,0,41,42,5,15,0,0,42,3,1,0,0,0,43,44,5,
-1,0,0,44,45,5,16,0,0,45,5,1,0,0,0,46,48,3,12,6,0,47,46,1,0,0,0,47,48,1,0,
-0,0,48,50,1,0,0,0,49,51,3,8,4,0,50,49,1,0,0,0,51,52,1,0,0,0,52,50,1,0,0,
-0,52,53,1,0,0,0,53,55,1,0,0,0,54,56,5,8,0,0,55,54,1,0,0,0,55,56,1,0,0,0,
-56,7,1,0,0,0,57,61,3,10,5,0,58,61,3,16,8,0,59,61,3,14,7,0,60,57,1,0,0,0,
-60,58,1,0,0,0,60,59,1,0,0,0,61,9,1,0,0,0,62,63,5,3,0,0,63,64,5,10,0,0,64,
-65,5,12,0,0,65,11,1,0,0,0,66,67,3,18,9,0,67,68,5,4,0,0,68,13,1,0,0,0,69,
-70,3,20,10,0,70,15,1,0,0,0,71,72,5,5,0,0,72,73,5,2,0,0,73,74,5,19,0,0,74,
-75,5,18,0,0,75,76,5,19,0,0,76,77,5,20,0,0,77,78,5,21,0,0,78,17,1,0,0,0,79,
-80,5,6,0,0,80,19,1,0,0,0,81,82,5,9,0,0,82,21,1,0,0,0,7,25,31,39,47,52,55,
-60];
+const serializedATN = [4,1,26,96,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,
+2,5,7,5,2,6,7,6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,1,0,5,0,26,8,
+0,10,0,12,0,29,9,0,1,0,5,0,32,8,0,10,0,12,0,35,9,0,1,0,5,0,38,8,0,10,0,12,
+0,41,9,0,1,0,1,0,1,1,1,1,1,1,3,1,48,8,1,1,1,1,1,1,2,1,2,1,2,1,3,1,3,1,3,
+1,3,1,4,3,4,60,8,4,1,4,4,4,63,8,4,11,4,12,4,64,1,4,3,4,68,8,4,1,5,1,5,1,
+5,3,5,73,8,5,1,6,1,6,1,6,1,6,1,7,1,7,1,7,1,8,1,8,1,9,1,9,1,9,1,9,1,9,1,9,
+1,9,1,9,1,10,1,10,1,11,1,11,1,11,0,0,12,0,2,4,6,8,10,12,14,16,18,20,22,0,
+0,92,0,27,1,0,0,0,2,44,1,0,0,0,4,51,1,0,0,0,6,54,1,0,0,0,8,59,1,0,0,0,10,
+72,1,0,0,0,12,74,1,0,0,0,14,78,1,0,0,0,16,81,1,0,0,0,18,83,1,0,0,0,20,91,
+1,0,0,0,22,93,1,0,0,0,24,26,3,2,1,0,25,24,1,0,0,0,26,29,1,0,0,0,27,25,1,
+0,0,0,27,28,1,0,0,0,28,33,1,0,0,0,29,27,1,0,0,0,30,32,3,6,3,0,31,30,1,0,
+0,0,32,35,1,0,0,0,33,31,1,0,0,0,33,34,1,0,0,0,34,39,1,0,0,0,35,33,1,0,0,
+0,36,38,3,8,4,0,37,36,1,0,0,0,38,41,1,0,0,0,39,37,1,0,0,0,39,40,1,0,0,0,
+40,42,1,0,0,0,41,39,1,0,0,0,42,43,5,0,0,1,43,1,1,0,0,0,44,47,3,4,2,0,45,
+46,5,14,0,0,46,48,5,18,0,0,47,45,1,0,0,0,47,48,1,0,0,0,48,49,1,0,0,0,49,
+50,5,16,0,0,50,3,1,0,0,0,51,52,5,1,0,0,52,53,5,17,0,0,53,5,1,0,0,0,54,55,
+5,2,0,0,55,56,5,25,0,0,56,57,5,24,0,0,57,7,1,0,0,0,58,60,3,14,7,0,59,58,
+1,0,0,0,59,60,1,0,0,0,60,62,1,0,0,0,61,63,3,10,5,0,62,61,1,0,0,0,63,64,1,
+0,0,0,64,62,1,0,0,0,64,65,1,0,0,0,65,67,1,0,0,0,66,68,5,9,0,0,67,66,1,0,
+0,0,67,68,1,0,0,0,68,9,1,0,0,0,69,73,3,12,6,0,70,73,3,18,9,0,71,73,3,16,
+8,0,72,69,1,0,0,0,72,70,1,0,0,0,72,71,1,0,0,0,73,11,1,0,0,0,74,75,5,4,0,
+0,75,76,5,11,0,0,76,77,5,13,0,0,77,13,1,0,0,0,78,79,3,20,10,0,79,80,5,5,
+0,0,80,15,1,0,0,0,81,82,3,22,11,0,82,17,1,0,0,0,83,84,5,6,0,0,84,85,5,3,
+0,0,85,86,5,20,0,0,86,87,5,19,0,0,87,88,5,20,0,0,88,89,5,21,0,0,89,90,5,
+22,0,0,90,19,1,0,0,0,91,92,5,7,0,0,92,21,1,0,0,0,93,94,5,10,0,0,94,23,1,
+0,0,0,8,27,33,39,47,59,64,67,72];
 
 
 const atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
@@ -38,18 +41,21 @@ const sharedContextCache = new antlr4.atn.PredictionContextCache();
 export default class RunaParser extends antlr4.Parser {
 
     static grammarFileName = "RunaParser.g4";
-    static literalNames = [ null, "'@import'", "'lora'", "'{'", null, "'<'", 
-                            null, null, null, null, null, null, "'}'", "'as'", 
-                            null, null, null, null, null, null, null, "'>'" ];
-    static symbolicNames = [ null, "IMPORT", "LORA", "LBRACE", "COLON", 
+    static literalNames = [ null, "'@import'", "'@use'", "'lora'", "'{'", 
+                            null, "'<'", null, null, null, null, null, null, 
+                            "'}'", "'as'", null, null, null, null, null, 
+                            null, null, "'>'" ];
+    static symbolicNames = [ null, "IMPORT", "USE", "LORA", "LBRACE", "COLON", 
                              "LANGLE", "NUMBER", "COMMENT", "NEWLINE", "TEXT", 
                              "VAR_IDENTIFIER", "VAR_WS", "RBRACE", "IMPORT_AS", 
                              "IMPORT_WS", "IMPORT_NEWLINE", "IMPORT_PATH", 
                              "IMPORT_IDENTIFIER", "LORA_IDENTIFIER", "LORA_COLON", 
-                             "LORA_NUMBER", "RANGLE" ];
+                             "LORA_NUMBER", "RANGLE", "USE_WS", "USE_NEWLINE", 
+                             "USE_IDENTIFIER", "USE_NAME" ];
     static ruleNames = [ "file", "importAsStatement", "importStatement", 
-                         "record", "recordBlock", "recordVariable", "recordWeight", 
-                         "recordText", "lora", "number", "text" ];
+                         "useStatement", "record", "recordBlock", "recordVariable", 
+                         "recordWeight", "recordText", "lora", "number", 
+                         "text" ];
 
     constructor(input) {
         super(input);
@@ -67,27 +73,37 @@ export default class RunaParser extends antlr4.Parser {
 	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 25;
+	        this.state = 27;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
 	        while(_la===1) {
-	            this.state = 22;
+	            this.state = 24;
 	            this.importAsStatement();
-	            this.state = 27;
+	            this.state = 29;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
 	        }
-	        this.state = 31;
+	        this.state = 33;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
-	        while((((_la) & ~0x1f) === 0 && ((1 << _la) & 616) !== 0)) {
-	            this.state = 28;
-	            this.record();
-	            this.state = 33;
+	        while(_la===2) {
+	            this.state = 30;
+	            this.useStatement();
+	            this.state = 35;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
 	        }
-	        this.state = 34;
+	        this.state = 39;
+	        this._errHandler.sync(this);
+	        _la = this._input.LA(1);
+	        while((((_la) & ~0x1f) === 0 && ((1 << _la) & 1232) !== 0)) {
+	            this.state = 36;
+	            this.record();
+	            this.state = 41;
+	            this._errHandler.sync(this);
+	            _la = this._input.LA(1);
+	        }
+	        this.state = 42;
 	        this.match(RunaParser.EOF);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
@@ -111,19 +127,19 @@ export default class RunaParser extends antlr4.Parser {
 	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 36;
+	        this.state = 44;
 	        this.importStatement();
-	        this.state = 39;
+	        this.state = 47;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
-	        if(_la===13) {
-	            this.state = 37;
+	        if(_la===14) {
+	            this.state = 45;
 	            this.match(RunaParser.IMPORT_AS);
-	            this.state = 38;
+	            this.state = 46;
 	            this.match(RunaParser.IMPORT_IDENTIFIER);
 	        }
 
-	        this.state = 41;
+	        this.state = 49;
 	        this.match(RunaParser.IMPORT_NEWLINE);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
@@ -146,10 +162,37 @@ export default class RunaParser extends antlr4.Parser {
 	    this.enterRule(localctx, 4, RunaParser.RULE_importStatement);
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 43;
+	        this.state = 51;
 	        this.match(RunaParser.IMPORT);
-	        this.state = 44;
+	        this.state = 52;
 	        this.match(RunaParser.IMPORT_PATH);
+	    } catch (re) {
+	    	if(re instanceof antlr4.error.RecognitionException) {
+		        localctx.exception = re;
+		        this._errHandler.reportError(this, re);
+		        this._errHandler.recover(this, re);
+		    } else {
+		    	throw re;
+		    }
+	    } finally {
+	        this.exitRule();
+	    }
+	    return localctx;
+	}
+
+
+
+	useStatement() {
+	    let localctx = new UseStatementContext(this, this._ctx, this.state);
+	    this.enterRule(localctx, 6, RunaParser.RULE_useStatement);
+	    try {
+	        this.enterOuterAlt(localctx, 1);
+	        this.state = 54;
+	        this.match(RunaParser.USE);
+	        this.state = 55;
+	        this.match(RunaParser.USE_IDENTIFIER);
+	        this.state = 56;
+	        this.match(RunaParser.USE_NEWLINE);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
 		        localctx.exception = re;
@@ -168,39 +211,39 @@ export default class RunaParser extends antlr4.Parser {
 
 	record() {
 	    let localctx = new RecordContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 6, RunaParser.RULE_record);
+	    this.enterRule(localctx, 8, RunaParser.RULE_record);
 	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 47;
+	        this.state = 59;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
-	        if(_la===6) {
-	            this.state = 46;
+	        if(_la===7) {
+	            this.state = 58;
 	            this.recordWeight();
 	        }
 
-	        this.state = 50; 
+	        this.state = 62; 
 	        this._errHandler.sync(this);
 	        var _alt = 1;
 	        do {
 	        	switch (_alt) {
 	        	case 1:
-	        		this.state = 49;
+	        		this.state = 61;
 	        		this.recordBlock();
 	        		break;
 	        	default:
 	        		throw new antlr4.error.NoViableAltException(this);
 	        	}
-	        	this.state = 52; 
+	        	this.state = 64; 
 	        	this._errHandler.sync(this);
-	        	_alt = this._interp.adaptivePredict(this._input,4, this._ctx);
+	        	_alt = this._interp.adaptivePredict(this._input,5, this._ctx);
 	        } while ( _alt!=2 && _alt!=antlr4.atn.ATN.INVALID_ALT_NUMBER );
-	        this.state = 55;
+	        this.state = 67;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
-	        if(_la===8) {
-	            this.state = 54;
+	        if(_la===9) {
+	            this.state = 66;
 	            this.match(RunaParser.NEWLINE);
 	        }
 
@@ -222,24 +265,24 @@ export default class RunaParser extends antlr4.Parser {
 
 	recordBlock() {
 	    let localctx = new RecordBlockContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 8, RunaParser.RULE_recordBlock);
+	    this.enterRule(localctx, 10, RunaParser.RULE_recordBlock);
 	    try {
-	        this.state = 60;
+	        this.state = 72;
 	        this._errHandler.sync(this);
 	        switch(this._input.LA(1)) {
-	        case 3:
+	        case 4:
 	            this.enterOuterAlt(localctx, 1);
-	            this.state = 57;
+	            this.state = 69;
 	            this.recordVariable();
 	            break;
-	        case 5:
+	        case 6:
 	            this.enterOuterAlt(localctx, 2);
-	            this.state = 58;
+	            this.state = 70;
 	            this.lora();
 	            break;
-	        case 9:
+	        case 10:
 	            this.enterOuterAlt(localctx, 3);
-	            this.state = 59;
+	            this.state = 71;
 	            this.recordText();
 	            break;
 	        default:
@@ -263,14 +306,14 @@ export default class RunaParser extends antlr4.Parser {
 
 	recordVariable() {
 	    let localctx = new RecordVariableContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 10, RunaParser.RULE_recordVariable);
+	    this.enterRule(localctx, 12, RunaParser.RULE_recordVariable);
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 62;
+	        this.state = 74;
 	        this.match(RunaParser.LBRACE);
-	        this.state = 63;
+	        this.state = 75;
 	        this.match(RunaParser.VAR_IDENTIFIER);
-	        this.state = 64;
+	        this.state = 76;
 	        this.match(RunaParser.RBRACE);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
@@ -290,12 +333,12 @@ export default class RunaParser extends antlr4.Parser {
 
 	recordWeight() {
 	    let localctx = new RecordWeightContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 12, RunaParser.RULE_recordWeight);
+	    this.enterRule(localctx, 14, RunaParser.RULE_recordWeight);
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 66;
+	        this.state = 78;
 	        this.number();
-	        this.state = 67;
+	        this.state = 79;
 	        this.match(RunaParser.COLON);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
@@ -315,10 +358,10 @@ export default class RunaParser extends antlr4.Parser {
 
 	recordText() {
 	    let localctx = new RecordTextContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 14, RunaParser.RULE_recordText);
+	    this.enterRule(localctx, 16, RunaParser.RULE_recordText);
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 69;
+	        this.state = 81;
 	        this.text();
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
@@ -338,22 +381,22 @@ export default class RunaParser extends antlr4.Parser {
 
 	lora() {
 	    let localctx = new LoraContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 16, RunaParser.RULE_lora);
+	    this.enterRule(localctx, 18, RunaParser.RULE_lora);
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 71;
+	        this.state = 83;
 	        this.match(RunaParser.LANGLE);
-	        this.state = 72;
+	        this.state = 84;
 	        this.match(RunaParser.LORA);
-	        this.state = 73;
+	        this.state = 85;
 	        this.match(RunaParser.LORA_COLON);
-	        this.state = 74;
+	        this.state = 86;
 	        this.match(RunaParser.LORA_IDENTIFIER);
-	        this.state = 75;
+	        this.state = 87;
 	        this.match(RunaParser.LORA_COLON);
-	        this.state = 76;
+	        this.state = 88;
 	        this.match(RunaParser.LORA_NUMBER);
-	        this.state = 77;
+	        this.state = 89;
 	        this.match(RunaParser.RANGLE);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
@@ -373,10 +416,10 @@ export default class RunaParser extends antlr4.Parser {
 
 	number() {
 	    let localctx = new NumberContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 18, RunaParser.RULE_number);
+	    this.enterRule(localctx, 20, RunaParser.RULE_number);
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 79;
+	        this.state = 91;
 	        this.match(RunaParser.NUMBER);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
@@ -396,10 +439,10 @@ export default class RunaParser extends antlr4.Parser {
 
 	text() {
 	    let localctx = new TextContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 20, RunaParser.RULE_text);
+	    this.enterRule(localctx, 22, RunaParser.RULE_text);
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 81;
+	        this.state = 93;
 	        this.match(RunaParser.TEXT);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
@@ -420,38 +463,44 @@ export default class RunaParser extends antlr4.Parser {
 
 RunaParser.EOF = antlr4.Token.EOF;
 RunaParser.IMPORT = 1;
-RunaParser.LORA = 2;
-RunaParser.LBRACE = 3;
-RunaParser.COLON = 4;
-RunaParser.LANGLE = 5;
-RunaParser.NUMBER = 6;
-RunaParser.COMMENT = 7;
-RunaParser.NEWLINE = 8;
-RunaParser.TEXT = 9;
-RunaParser.VAR_IDENTIFIER = 10;
-RunaParser.VAR_WS = 11;
-RunaParser.RBRACE = 12;
-RunaParser.IMPORT_AS = 13;
-RunaParser.IMPORT_WS = 14;
-RunaParser.IMPORT_NEWLINE = 15;
-RunaParser.IMPORT_PATH = 16;
-RunaParser.IMPORT_IDENTIFIER = 17;
-RunaParser.LORA_IDENTIFIER = 18;
-RunaParser.LORA_COLON = 19;
-RunaParser.LORA_NUMBER = 20;
-RunaParser.RANGLE = 21;
+RunaParser.USE = 2;
+RunaParser.LORA = 3;
+RunaParser.LBRACE = 4;
+RunaParser.COLON = 5;
+RunaParser.LANGLE = 6;
+RunaParser.NUMBER = 7;
+RunaParser.COMMENT = 8;
+RunaParser.NEWLINE = 9;
+RunaParser.TEXT = 10;
+RunaParser.VAR_IDENTIFIER = 11;
+RunaParser.VAR_WS = 12;
+RunaParser.RBRACE = 13;
+RunaParser.IMPORT_AS = 14;
+RunaParser.IMPORT_WS = 15;
+RunaParser.IMPORT_NEWLINE = 16;
+RunaParser.IMPORT_PATH = 17;
+RunaParser.IMPORT_IDENTIFIER = 18;
+RunaParser.LORA_IDENTIFIER = 19;
+RunaParser.LORA_COLON = 20;
+RunaParser.LORA_NUMBER = 21;
+RunaParser.RANGLE = 22;
+RunaParser.USE_WS = 23;
+RunaParser.USE_NEWLINE = 24;
+RunaParser.USE_IDENTIFIER = 25;
+RunaParser.USE_NAME = 26;
 
 RunaParser.RULE_file = 0;
 RunaParser.RULE_importAsStatement = 1;
 RunaParser.RULE_importStatement = 2;
-RunaParser.RULE_record = 3;
-RunaParser.RULE_recordBlock = 4;
-RunaParser.RULE_recordVariable = 5;
-RunaParser.RULE_recordWeight = 6;
-RunaParser.RULE_recordText = 7;
-RunaParser.RULE_lora = 8;
-RunaParser.RULE_number = 9;
-RunaParser.RULE_text = 10;
+RunaParser.RULE_useStatement = 3;
+RunaParser.RULE_record = 4;
+RunaParser.RULE_recordBlock = 5;
+RunaParser.RULE_recordVariable = 6;
+RunaParser.RULE_recordWeight = 7;
+RunaParser.RULE_recordText = 8;
+RunaParser.RULE_lora = 9;
+RunaParser.RULE_number = 10;
+RunaParser.RULE_text = 11;
 
 class FileContext extends antlr4.ParserRuleContext {
 
@@ -479,6 +528,17 @@ class FileContext extends antlr4.ParserRuleContext {
 	        return this.getTypedRuleContexts(ImportAsStatementContext);
 	    } else {
 	        return this.getTypedRuleContext(ImportAsStatementContext,i);
+	    }
+	};
+
+	useStatement = function(i) {
+	    if(i===undefined) {
+	        i = null;
+	    }
+	    if(i===null) {
+	        return this.getTypedRuleContexts(UseStatementContext);
+	    } else {
+	        return this.getTypedRuleContext(UseStatementContext,i);
 	    }
 	};
 
@@ -610,6 +670,57 @@ class ImportStatementContext extends antlr4.ParserRuleContext {
 	accept(visitor) {
 	    if ( visitor instanceof RunaParserVisitor ) {
 	        return visitor.visitImportStatement(this);
+	    } else {
+	        return visitor.visitChildren(this);
+	    }
+	}
+
+
+}
+
+
+
+class UseStatementContext extends antlr4.ParserRuleContext {
+
+    constructor(parser, parent, invokingState) {
+        if(parent===undefined) {
+            parent = null;
+        }
+        if(invokingState===undefined || invokingState===null) {
+            invokingState = -1;
+        }
+        super(parent, invokingState);
+        this.parser = parser;
+        this.ruleIndex = RunaParser.RULE_useStatement;
+    }
+
+	USE() {
+	    return this.getToken(RunaParser.USE, 0);
+	};
+
+	USE_IDENTIFIER() {
+	    return this.getToken(RunaParser.USE_IDENTIFIER, 0);
+	};
+
+	USE_NEWLINE() {
+	    return this.getToken(RunaParser.USE_NEWLINE, 0);
+	};
+
+	enterRule(listener) {
+	    if(listener instanceof RunaParserListener ) {
+	        listener.enterUseStatement(this);
+		}
+	}
+
+	exitRule(listener) {
+	    if(listener instanceof RunaParserListener ) {
+	        listener.exitUseStatement(this);
+		}
+	}
+
+	accept(visitor) {
+	    if ( visitor instanceof RunaParserVisitor ) {
+	        return visitor.visitUseStatement(this);
 	    } else {
 	        return visitor.visitChildren(this);
 	    }
@@ -1031,6 +1142,7 @@ class TextContext extends antlr4.ParserRuleContext {
 RunaParser.FileContext = FileContext; 
 RunaParser.ImportAsStatementContext = ImportAsStatementContext; 
 RunaParser.ImportStatementContext = ImportStatementContext; 
+RunaParser.UseStatementContext = UseStatementContext; 
 RunaParser.RecordContext = RecordContext; 
 RunaParser.RecordBlockContext = RecordBlockContext; 
 RunaParser.RecordVariableContext = RecordVariableContext; 

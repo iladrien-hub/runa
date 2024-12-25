@@ -24,6 +24,12 @@ export default class RunaParserVisitor extends antlr4.tree.ParseTreeVisitor {
 	}
 
 
+	// Visit a parse tree produced by RunaParser#useStatement.
+	visitUseStatement(ctx) {
+	  return this.visitChildren(ctx);
+	}
+
+
 	// Visit a parse tree produced by RunaParser#record.
 	visitRecord(ctx) {
 	  return this.visitChildren(ctx);

@@ -1,0 +1,5 @@
+@import ./welcome/casual
+
+@use name
+
+Hello, {name}! { casual }

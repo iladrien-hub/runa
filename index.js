@@ -8,10 +8,11 @@ import path from "path";
 
 class RunaInterpreter extends RunaParserVisitor {
 
-    constructor(filePath) {
+    constructor(filePath, contextStore) {
         super();
-        this.variables = new Map();
         this.path = filePath;
+        this.contextStore = contextStore;
+        this.variablesStore = new Map();
     }
 
     visitFile(ctx) {
@@ -19,20 +20,16 @@ class RunaInterpreter extends RunaParserVisitor {
 
         const imports = data.filter(d => d.type == "import" || d.type == "importAs");   
         const records = data.filter(d => d.type == "record");
+        const uses = data.filter(d => d.type == "use");
 
         if (records.length == 0) {
             return "";
         }
-
-        // Select a random record based on weights
-        const totalWeight = records.reduce((sum, record) => sum + record.weight, 0);
-        const randomValue = Math.random() * totalWeight;
         
         for (const import_ of imports) {
             const modulePath = import_.path;
             const alias = import_.alias ?? modulePath.split("/").pop();
 
-            let fullPath;
             const basePath = path.dirname(this.path);
             const resolvedPath = path.join(basePath, modulePath);
 
@@ -48,8 +45,19 @@ class RunaInterpreter extends RunaParserVisitor {
                 throw new Error(`Ambiguous module at path: ${resolvedPath}`);
             }
 
-            this.variables.set(alias, executeFile(fullPath));
+            this.variablesStore.set(alias, executeFile(variants[0]));
         }
+
+        for (const use of uses) {
+            const name = use.name;
+            this.variablesStore.set(name, {
+                text: this.contextStore.get(name),
+            });
+        }
+
+        // Select a random record based on weights
+        const totalWeight = records.reduce((sum, record) => sum + record.weight, 0);
+        const randomValue = Math.random() * totalWeight;
 
         let currentWeight = 0;
         const selectedRecord = records.find(record => {
@@ -66,8 +74,11 @@ class RunaInterpreter extends RunaParserVisitor {
                     result.push(block.text);
                     break;
                 case "variable":
-                    const varData = this.variables.get(block.name);
-                    for (const lora of varData.loras.values()) {
+                    const varData = this.variablesStore.get(block.name);
+                    if (varData === undefined) {
+                        continue;
+                    }
+                    for (const lora of varData.loras?.values() ?? []) {
                         if (!loras.has(lora.name) || loras.get(lora.name).value < lora.value) {
                             loras.set(lora.name, lora);
                         }
@@ -106,6 +117,13 @@ class RunaInterpreter extends RunaParserVisitor {
             type: "importAs",
             path: import_.path,
             alias: ctx.children[2].getText(),
+        }
+    }
+
+    visitUseStatement(ctx) {
+        return {
+            type: "use",
+            name: ctx.children[1].getText(),
         }
     }
 
@@ -165,11 +183,14 @@ class RunaInterpreter extends RunaParserVisitor {
     }
 }
 
-export function execute(code, path = undefined, debug = false) {
+export function execute(code, path = undefined, context=undefined, debug = false) {
     if (path === undefined) {
         path = process.cwd();
     }
-
+    if (context === undefined) {
+        context = new Map();
+    }
+    
     const input = new antlr4.InputStream(code);
     const lexer = new RunaLexer(input);
     const tokens = new antlr4.CommonTokenStream(lexer);
@@ -186,12 +207,12 @@ export function execute(code, path = undefined, debug = false) {
     const parser = new RunaParser(tokens);
     const tree = parser.file();
 
-    const interpreter = new RunaInterpreter(path);
+    const interpreter = new RunaInterpreter(path, context);
     return interpreter.visit(tree);
 }
 
-export function executeFile(path, debug = false) {
+export function executeFile(path, context = undefined, debug = false) {
     const code = fs.readFileSync(path, "utf8");
-    return execute(code, path, debug);
+    return execute(code, path, context, debug);
 }
 

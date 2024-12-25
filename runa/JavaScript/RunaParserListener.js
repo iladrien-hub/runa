@@ -32,6 +32,15 @@ export default class RunaParserListener extends antlr4.tree.ParseTreeListener {
 	}
 
 
+	// Enter a parse tree produced by RunaParser#useStatement.
+	enterUseStatement(ctx) {
+	}
+
+	// Exit a parse tree produced by RunaParser#useStatement.
+	exitUseStatement(ctx) {
+	}
+
+
 	// Enter a parse tree produced by RunaParser#record.
 	enterRecord(ctx) {
 	}

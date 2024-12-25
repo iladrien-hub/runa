@@ -14,7 +14,15 @@
     "type": "git",
     "url": "git+https://github.com/iladrien-hub/runa.git"
   },
-  "keywords": [],
+  "keywords": [
+    "template",
+    "prompt",
+    "stable-diffusion",
+    "ai",
+    "text-generation",
+    "random",
+    "templating"
+  ],
   "author": "Iladrien",
   "license": "ISC",
   "dependencies": {

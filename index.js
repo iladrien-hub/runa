@@ -36,16 +36,16 @@ class RunaInterpreter extends RunaParserVisitor {
             const basePath = path.dirname(this.path);
             const resolvedPath = path.join(basePath, modulePath);
 
-            if (fs.existsSync(resolvedPath) && fs.existsSync(`${resolvedPath}/__index__.runa`)) {
-                fullPath = `${resolvedPath}/__index__.runa`;
-            } else if (fs.existsSync(`${resolvedPath}.runa`)) {
-                fullPath = `${resolvedPath}.runa`;
-            } else {
-                fullPath = resolvedPath;
-            }
+            const variants = [
+                path.join(resolvedPath, '__index__.runa'),
+                `${resolvedPath}.runa`,
+                resolvedPath,
+            ].filter(fs.existsSync);
 
-            if (!fs.existsSync(fullPath)) {
-                throw new Error(`Could not find module at path: ${fullPath}`);
+            if (variants.length == 0) {
+                throw new Error(`Could not find module at path: ${resolvedPath}`);
+            } else if (variants.length > 1) {
+                throw new Error(`Ambiguous module at path: ${resolvedPath}`);
             }
 
             this.variables.set(alias, executeFile(fullPath));

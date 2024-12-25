@@ -45,7 +45,7 @@ class RunaInterpreter extends RunaParserVisitor {
             }
 
             if (!fs.existsSync(fullPath)) {
-                throw new Error(`Could not find module at path: ${path}`);
+                throw new Error(`Could not find module at path: ${fullPath}`);
             }
 
             this.variables.set(alias, executeFile(fullPath));

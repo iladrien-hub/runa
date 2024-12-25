@@ -45,7 +45,7 @@ class RunaInterpreter extends RunaParserVisitor {
                 throw new Error(`Ambiguous module at path: ${resolvedPath}`);
             }
 
-            this.variablesStore.set(alias, executeFile(variants[0]));
+            this.variablesStore.set(alias, executeFile(variants[0], this.contextStore));
         }
 
         for (const use of uses) {

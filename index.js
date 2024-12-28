@@ -39,7 +39,13 @@ class RunaInterpreter extends RunaParserVisitor {
             path.join(resolvedPath, '__index__.runa'),
             `${resolvedPath}.runa`,
             resolvedPath,
-        ].filter(fs.existsSync);
+        ].filter(filePath => {
+            try {
+                return fs.statSync(filePath).isFile();
+            } catch {
+                return false;
+            }
+        });
 
         if (variants.length === 0) {
             throw new Error(`Could not find module at path: ${resolvedPath}`);

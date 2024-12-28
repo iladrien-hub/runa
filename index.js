@@ -74,13 +74,13 @@ class RunaInterpreter extends RunaParserVisitor {
         });
     }
 
-    processBlock(block, result, loras) {
+    processBlock(block, result, loras, variables) {
         switch (block.type) {
             case "text":
                 result.push(block.text);
                 break;
             case "variable":
-                this.processVariableBlock(block, result, loras);
+                this.processVariableBlock(block, result, loras, variables);
                 break;
             case "lora":
                 this.processLoraBlock(block, loras);
@@ -88,13 +88,19 @@ class RunaInterpreter extends RunaParserVisitor {
         }
     }
 
-    processVariableBlock(block, result, loras) {
+    processVariableBlock(block, result, loras, variables) {
         const varData = this.variablesStore.get(block.name);
         if (varData === undefined) return;
-        
+
         for (const lora of varData.loras?.values() ?? []) {
             this.updateLora(loras, lora);
         }
+        
+        variables.set(block.name, varData.text);
+        for (const variable of varData.variables?.keys() ?? []) {
+            variables.set(`${block.name}.${variable}`, varData.variables.get(variable));
+        }
+
         result.push(varData.text);
     }
 
@@ -122,14 +128,16 @@ class RunaInterpreter extends RunaParserVisitor {
         const selectedRecord = this.selectRandomRecord(records);
         let result = [];
         let loras = new Map();
+        let variables = new Map();
 
         for (const block of selectedRecord.children) {
-            this.processBlock(block, result, loras);
+            this.processBlock(block, result, loras, variables);
         }
 
         return {
             text: result.join("").trim(),
             loras: loras,
+            variables: variables,
         };
     }
 
